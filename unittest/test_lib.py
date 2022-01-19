@@ -4,7 +4,6 @@ import mathlib
 import numpy as np
 import math
 
-#def test_nametest():
 
 def test_is_inside_rectangle():
 	rect = (0,0,500,500)
