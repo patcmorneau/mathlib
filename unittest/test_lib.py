@@ -11,14 +11,14 @@ def test_is_inside_rectangle():
 	point2 = (600,600)
 	point3 = (500,501)
 	point4 = (500,499)
-	isInside = mathlib.is_inside_rectangle(rect, point)
-	assert isInside
-	isInside = mathlib.is_inside_rectangle(rect, point2)
-	assert not isInside
-	isInside = mathlib.is_inside_rectangle(rect, point3)
-	assert not isInside
-	isInside = mathlib.is_inside_rectangle(rect, point4)
-	assert isInside
+	inside = mathlib.is_inside_rectangle(rect, point)
+	assert inside
+	inside = mathlib.is_inside_rectangle(rect, point2)
+	assert not inside
+	inside = mathlib.is_inside_rectangle(rect, point3)
+	assert not inside
+	inside = mathlib.is_inside_rectangle(rect, point4)
+	assert inside
 	
 def test_gen_matrix_rotation():
 	vector = np.array([5,2])
