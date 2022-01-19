@@ -17,7 +17,7 @@ def is_inside_rectangle(rect, point) :
 	return True
 
 def gen_rotation_matrix(angle):
-	rotation_matrix = np.matrix([[math.cos(math.radians(angle)),math.cos(math.radians(angle+90))],[math.sin(math.radians(angle)),math.sin(math.radians(angle+90))]])
+	rotation_matrix = np.array([[math.cos(math.radians(angle)),math.cos(math.radians(angle+90))],[math.sin(math.radians(angle)),math.sin(math.radians(angle+90))]])
 	return rotation_matrix
 
 #matrix_rotation = gen_rotation_matrix(90)
