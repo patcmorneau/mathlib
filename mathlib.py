@@ -48,7 +48,7 @@ def find_min_distance_pts_p(points, point):
 	#print(points[ans])
 	return points[ans]
 
-def delaunay_triangulation( subdiv, points):
+def delaunay_triangulation(subdiv, points):
 	
 	face_triangulated = []
 	# Obtain the list of triangles.
@@ -69,3 +69,31 @@ def delaunay_triangulation( subdiv, points):
 		delaunay_triangle = [landmark1, landmark2, landmark3]
 		face_triangulated.append(list(delaunay_triangle))
 	return face_triangulated
+	
+def calculate_center(pointList):
+	x = 0
+	y = 0
+	
+	for point in pointList:
+		x += point[0]
+		y += point[1]
+	centerX = x/len(pointList)
+	centerY = y/len(pointList)
+	return (int(centerX),int(centerY))
+
+def unit_vector(vector):
+    """ Returns the unit vector of the vector.  """
+    return vector / np.linalg.norm(vector)
+
+def angle_between(a, b):
+	# a and b are vectors
+	inner = np.dot(a,b)
+	norms = LA.norm(a) * LA.norm(b)
+
+	cos = inner / norms
+	#print("cos : ", cos)
+	rad = np.arccos(cos)
+	deg = np.rad2deg(rad)
+	if(cos < 0):
+		deg = 180 - deg
+	return deg
