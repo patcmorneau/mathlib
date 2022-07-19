@@ -2,4 +2,5 @@
 
 ### unittest
 >cd unittest/
->pytest
+
+>python test_lib.py
