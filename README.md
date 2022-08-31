@@ -1,6 +1,10 @@
 # mathlib
 
-### unittest
->cd unittest/
+mathlib is wrapping some powerful librairies into simple function that take pure python class as input
 
->python test_lib.py
+
+### unittest
+python unittest/test_lib.py
+
+
+### How to add mathlib to your github project
