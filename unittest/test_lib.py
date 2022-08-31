@@ -1,6 +1,11 @@
-import sys
-sys.path.insert(0, '../mathlib')
-import mathlib
+import sys, os
+PROJECT_ROOT = os.path.abspath(os.path.join(
+                  os.path.dirname(__file__), 
+                  os.pardir)
+)
+sys.path.append(PROJECT_ROOT)
+print(sys.path)
+from lib import mathlib
 import numpy as np
 import math
 import unittest
