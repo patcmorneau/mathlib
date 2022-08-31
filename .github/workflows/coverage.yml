@@ -16,6 +16,6 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install numpy matplotlib
+          pip install -r requirements.txt
       - name: Run tests with pytest
         run: python unittest/test_lib.py
