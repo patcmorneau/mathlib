@@ -5,7 +5,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(
 )
 sys.path.append(PROJECT_ROOT)
 print(sys.path)
-from lib import mathlib
+from mathlib import mathlib
 import numpy as np
 import math
 import unittest
