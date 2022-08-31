@@ -1,9 +1,8 @@
 import sys
-sys.path.insert(0, '../')
-import mathlib.mathlib as mathlib
+sys.path.insert(0, '../mathlib')
+import mathlib
 import numpy as np
 import math
-
 import unittest
 
 class TestLib(unittest.TestCase):
