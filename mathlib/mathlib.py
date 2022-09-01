@@ -71,9 +71,7 @@ def angle_between(a, b):
 	# a and b are vectors
 	inner = np.dot(a,b)
 	norms = np.linalg.norm(a) * np.linalg.norm(b)
-
 	cos = inner / norms
-	#print("cos : ", cos)
 	rad = np.arccos(cos)
 	deg = np.rad2deg(rad)
 	if(cos < 0):

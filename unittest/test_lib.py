@@ -71,27 +71,28 @@ class TestLib(unittest.TestCase):
 		u2 = mathlib.unit_vector(np.array([0.2, 0.8]))
 		self.assertEqual(u.all(), u2.all())
 
-
+		
 	def test_angle_between(self):
 		angle = mathlib.angle_between(np.array([1,0]), np.array([0,1]))
 		self.assertEqual(90, angle)
 		
-		angle2 = mathlib.angle_between(np.array([1,0]), np.array([math.sqrt(3)/2, 0.5]))
-		self.assertEqual(30, round(angle2))
-		"""
+		angle = mathlib.angle_between(np.array([1,0]), np.array([math.sqrt(3)/2, 0.5]))
+		self.assertEqual(30, round(angle))
+		
+		angle = mathlib.angle_between(np.array([1,0]), np.array([1, 1]))
+		self.assertEqual(45, round(angle))
+		
 		angle = mathlib.angle_between(np.array([1,0]), np.array([-1, 0]))
-		print(angle)
-		self.assertEqual(180, angle)
-		"""
-		"""
-		angle3 = mathlib.angle_between(np.array([1,0]), np.array([0,-1]))
-		self.assertEqual(270, angle3)
-		"""
+		self.assertEqual(0, angle)
+		
+		angle = mathlib.angle_between(np.array([1,0]), np.array([0,-1]))
+		self.assertEqual(90, angle)
+		
 		angle = mathlib.angle_between(np.array([1,0]), np.array([1,0]))
 		self.assertEqual(0, angle)
-		"""
-		angle4 = mathlib.angle_between(np.array([1,0]), np.array([-math.sqrt(3)/2, 0.5]))
-		self.assertEqual(210, angle4)
-		"""
+		
+		angle = mathlib.angle_between(np.array([1,0]), np.array([-math.sqrt(3)/2, 0.5]))
+		self.assertEqual(30, angle)
+		
 if __name__ == '__main__':
     unittest.main()
