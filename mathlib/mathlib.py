@@ -70,7 +70,7 @@ def unit_vector(vector):
 def angle_between(a, b):
 	# a and b are vectors
 	inner = np.dot(a,b)
-	norms = LA.norm(a) * LA.norm(b)
+	norms = np.linalg.norm(a) * np.linalg.norm(b)
 
 	cos = inner / norms
 	#print("cos : ", cos)
