@@ -2,7 +2,7 @@ import numpy as np
 import math
 import cv2 as cv
 
-def is_inside_rectangle(rect, point) :
+def is_inside_rectangle(rect:list, point:list)->bool :
 	if point[0] < rect[0] :
 		return False
 	elif point[1] < rect[1] :
@@ -13,13 +13,13 @@ def is_inside_rectangle(rect, point) :
 		return False
 	return True
 
-def gen_rotation_matrix(angle):
+def gen_rotation_matrix(angle:int):
 	rotation_matrix = np.array([[math.cos(math.radians(angle)),math.cos(math.radians(angle+90))],[math.sin(math.radians(angle)),math.sin(math.radians(angle+90))]])
 	return rotation_matrix
 
 
 
-def find_min_distance_pts_p(points, point):
+def find_min_distance_pts_p(points:list, point:list)->list:
 	diff = np.array(points) - np.array(point)
 	#print(np.array(points))
 	# Find the distance of point from all points
@@ -52,7 +52,7 @@ def delaunay_triangulation(subdiv, points):
 		face_triangulated.append(list(delaunay_triangle))
 	return face_triangulated
 	
-def calculate_center(pointList):
+def calculate_center(pointList:list)->tuple:
 	x = 0
 	y = 0
 	
@@ -63,11 +63,11 @@ def calculate_center(pointList):
 	centerY = y/len(pointList)
 	return (int(centerX),int(centerY))
 
-def unit_vector(vector):
+def unit_vector(vector:np.ndarray)->np.ndarray:
     """ Returns the unit vector of the vector.  """
     return vector / np.linalg.norm(vector)
 
-def angle_between(a, b):
+def angle_between(a:np.ndarray, b:np.ndarray)->int:
 	# a and b are vectors
 	inner = np.dot(a,b)
 	norms = np.linalg.norm(a) * np.linalg.norm(b)
