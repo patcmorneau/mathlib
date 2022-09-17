@@ -90,4 +90,40 @@ def triangulate(points:list)->list:
 		subdiv.insert(point)
 	
 	return subdiv.getTriangleList()
+
+
+def decimal2angular(angle:float)->str:
+	"""
+	if latitude < 0 :
+		latitude = abs(latitude)
+		directiony = "S"
+	else :
+		directiony = "N"
+	"""
+	deg = int(angle)
+	temp = 60 * (angle - deg)
+	minutes = int(temp)
+	seconds = int(60 * (temp - minutes))
 	
+	return '{}°{}’{}’’'.format(deg, minutes, seconds)
+					
+def angular2decimal(angle:str)->float: 
+	temp = angle.split("°")
+	integer = float(temp[0])
+	del temp[0]
+	x = temp[0]
+	temp = x.split("’")
+	minutes = float(temp[0])
+	secondes = float(temp[1])
+	
+	return integer + (secondes/3600) + (minutes/60)
+	
+	
+
+x = angular2decimal("47°56’13’’")
+print(x)
+
+"""
+x = decimal2angular(47.937)
+print(x)
+"""
