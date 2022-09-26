@@ -93,6 +93,14 @@ class TestLib(unittest.TestCase):
 		
 		angle = mathlib.angle_between(np.array([1,0]), np.array([-math.sqrt(3)/2, 0.5]))
 		self.assertEqual(30, angle)
+
+	def test_angle_conversion(self):
+		x = mathlib.angular2decimal("47°56’13’’")
+		self.assertAlmostEqual(x, 47.937, 3)
+		
+		x = mathlib.decimal2angular(47.937)
+		self.assertEqual(x, "47°56’13’’")
+		
 		
 if __name__ == '__main__':
     unittest.main()
