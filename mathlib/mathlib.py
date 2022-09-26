@@ -117,13 +117,3 @@ def angular2decimal(angle:str)->float:
 	secondes = float(temp[1])
 	
 	return integer + (secondes/3600) + (minutes/60)
-	
-	
-
-x = angular2decimal("47°56’13’’")
-print(x)
-
-"""
-x = decimal2angular(47.937)
-print(x)
-"""
