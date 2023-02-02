@@ -4,8 +4,9 @@ mathlib is wrapping some powerful librairies into simple function that take pure
 
 
 ### unittest
+```
 python unittest/test_lib.py
-
+```
 
 ### How to add mathlib to your github project
 ```
