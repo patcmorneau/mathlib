@@ -17,8 +17,6 @@ def gen_rotation_matrix(angle:int):
 	rotation_matrix = np.array([[math.cos(math.radians(angle)),math.cos(math.radians(angle+90))],[math.sin(math.radians(angle)),math.sin(math.radians(angle+90))]])
 	return rotation_matrix
 
-
-
 def find_min_distance_pts_p(points:list, point:list)->list:
 	diff = np.array(points) - np.array(point)
 	#print(np.array(points))
@@ -64,8 +62,8 @@ def calculate_center(pointList:list)->tuple:
 	return (int(centerX),int(centerY))
 
 def unit_vector(vector:np.ndarray)->np.ndarray:
-    """ Returns the unit vector of the vector.  """
-    return vector / np.linalg.norm(vector)
+	""" Returns the unit vector of the vector.  """
+	return vector / np.linalg.norm(vector)
 
 def angle_between(a:np.ndarray, b:np.ndarray)->int:
 	# a and b are vectors
@@ -117,3 +115,42 @@ def angular2decimal(angle:str)->float:
 	secondes = float(temp[1])
 	
 	return integer + (secondes/3600) + (minutes/60)
+
+def fit_plane(points):
+	# Extract x, y, z coordinates
+	x = points[:, 0]
+	y = points[:, 1]
+	z = points[:, 2]
+
+	# Create the design matrix
+	A = np.column_stack((x, y, np.ones_like(x)))
+
+	# Perform the least squares fitting
+	coefficients, _, _, _ = np.linalg.lstsq(A, z, rcond=None)
+
+	# Extract the coefficients of the plane (z = ax + by + c)
+	a, b, _ = coefficients
+
+	# Calculate the normal vector
+	normal = np.array([a, b, -1])
+
+	return normal / np.linalg.norm(normal)  # Normalize the normal vector
+
+
+def rotation_matrix(angles):
+	"""Create a 3D rotation matrix for rotation around the x, y, and z axes by the given angles (in degrees)."""
+	Rx = np.array([[1, 0, 0],
+					[0, np.cos(np.radians(angles[0])), -np.sin(np.radians(angles[0]))],
+					[0, np.sin(np.radians(angles[0])), np.cos(np.radians(angles[0]))]])
+	
+	Ry = np.array([[np.cos(np.radians(angles[1])), 0, np.sin(np.radians(angles[1]))],
+					[0, 1, 0],
+					[-np.sin(np.radians(angles[1])), 0, np.cos(np.radians(angles[1]))]])
+	
+	Rz = np.array([[np.cos(np.radians(angles[2])), -np.sin(np.radians(angles[2])), 0],
+					[np.sin(np.radians(angles[2])), np.cos(np.radians(angles[2])), 0],
+					[0, 0, 1]])
+	
+	return np.dot(Rz, np.dot(Ry, Rx))
+
+
